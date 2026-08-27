@@ -6,3 +6,4 @@
 #
 # Dev / tests:
 #   pip install pytest
+anthropic
