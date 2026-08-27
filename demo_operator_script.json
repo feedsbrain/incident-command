@@ -1,0 +1,9 @@
+{
+  "_comment": "Canned operator answers for a reproducible, non-interactive demo of feedback-driven re-decision. Lookup order: by_incident -> by_service -> _default. Unknown incidents (e.g. after a fixture swap) fall through to _default (accept). 'y' = accept, 'skip' = skip, anything else = correction.",
+  "by_incident": {
+    "inc-001": { "severity": "y", "action": "restart_consumer_group" },
+    "inc-006": { "severity": "sev3", "action": "skip" }
+  },
+  "by_service": {},
+  "_default": { "severity": "y", "action": "y" }
+}

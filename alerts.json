@@ -1,0 +1,90 @@
+[
+  {
+    "id": "a-101",
+    "timestamp": "2026-05-12T09:00:00Z",
+    "service": "market-data-stream",
+    "region": "eu-west-1",
+    "signal_type": "latency",
+    "summary": "p99 latency increased from 35ms to 480ms for live ticks",
+    "details": "Consumer lag rising across 4 partitions; packet retransmits elevated.",
+    "metric_value": 480,
+    "threshold": 120
+  },
+  {
+    "id": "a-102",
+    "timestamp": "2026-05-12T09:01:00Z",
+    "service": "market-data-stream",
+    "region": "eu-west-1",
+    "signal_type": "error_rate",
+    "summary": "tick publish failures at 7.8%",
+    "details": "Retries exhausted for downstream websocket fanout.",
+    "metric_value": 7.8,
+    "threshold": 1.0
+  },
+  {
+    "id": "a-103",
+    "timestamp": "2026-05-12T09:02:00Z",
+    "service": "trade-execution",
+    "region": "eu-west-1",
+    "signal_type": "timeout",
+    "summary": "order submission timeout spike",
+    "details": "Timeouts increased for requests dependent on latest quote fetch.",
+    "metric_value": 11.2,
+    "threshold": 2.0
+  },
+  {
+    "id": "a-104",
+    "timestamp": "2026-05-12T09:03:00Z",
+    "service": "auth-session",
+    "region": "ap-south-1",
+    "signal_type": "cpu",
+    "summary": "CPU sustained above 92%",
+    "details": "New deployment completed 12 minutes earlier; login traffic normal.",
+    "metric_value": 92,
+    "threshold": 80
+  },
+  {
+    "id": "a-105",
+    "timestamp": "2026-05-12T09:04:00Z",
+    "service": "payments-ledger",
+    "region": "global",
+    "signal_type": "backlog",
+    "summary": "withdrawal reconciliation queue depth exceeded 18,000",
+    "details": "Processor retries rising; settlement callback delay from provider observed.",
+    "metric_value": 18000,
+    "threshold": 4000
+  },
+  {
+    "id": "a-106",
+    "timestamp": "2026-05-12T09:05:00Z",
+    "service": "risk-engine",
+    "region": "eu-west-1",
+    "signal_type": "drift",
+    "summary": "decision distribution shifted 23% from baseline",
+    "details": "Recent model rollout enabled 40 minutes ago; false-positive complaints beginning.",
+    "metric_value": 23,
+    "threshold": 10
+  },
+  {
+    "id": "a-107",
+    "timestamp": "2026-05-12T09:06:00Z",
+    "service": "internal-dev-agent",
+    "region": "global",
+    "signal_type": "cost",
+    "summary": "LLM token spend 4.6x daily baseline",
+    "details": "Burst correlated with autonomous code review jobs.",
+    "metric_value": 4.6,
+    "threshold": 2.0
+  },
+  {
+    "id": "a-108",
+    "timestamp": "2026-05-12T09:07:00Z",
+    "service": "market-data-stream",
+    "region": "us-east-1",
+    "signal_type": "latency",
+    "summary": "p99 latency increased from 28ms to 170ms",
+    "details": "No packet loss observed; impact currently isolated.",
+    "metric_value": 170,
+    "threshold": 120
+  }
+]

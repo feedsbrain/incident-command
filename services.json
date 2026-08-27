@@ -1,0 +1,50 @@
+[
+  {
+    "service": "market-data-stream",
+    "tier": "critical",
+    "owner_team": "Core Trading",
+    "depends_on": ["network-edge", "websocket-fanout"],
+    "customer_impact": "Delayed or stale pricing may affect trading experience.",
+    "change_freeze_required": false
+  },
+  {
+    "service": "trade-execution",
+    "tier": "critical",
+    "owner_team": "Core Trading",
+    "depends_on": ["market-data-stream", "order-router"],
+    "customer_impact": "Orders may fail or be delayed.",
+    "change_freeze_required": true
+  },
+  {
+    "service": "auth-session",
+    "tier": "high",
+    "owner_team": "Identity Platform",
+    "depends_on": ["session-store"],
+    "customer_impact": "Users may have trouble signing in or maintaining sessions.",
+    "change_freeze_required": false
+  },
+  {
+    "service": "payments-ledger",
+    "tier": "critical",
+    "owner_team": "Payments Platform",
+    "depends_on": ["settlement-provider", "ledger-db"],
+    "customer_impact": "Deposits or withdrawals may be delayed.",
+    "change_freeze_required": true
+  },
+  {
+    "service": "risk-engine",
+    "tier": "critical",
+    "owner_team": "Risk & Compliance",
+    "depends_on": ["feature-store", "model-serving"],
+    "customer_impact": "Risk decisions may become inaccurate or inconsistent.",
+    "change_freeze_required": true
+  },
+  {
+    "service": "internal-dev-agent",
+    "tier": "medium",
+    "owner_team": "Developer Productivity",
+    "depends_on": ["llm-gateway", "job-runner"],
+    "customer_impact": "Internal engineering workflows may slow down.",
+    "change_freeze_required": false
+  }
+]

@@ -1,0 +1,8 @@
+# Core pipeline: standard library only (Python 3.10+). Nothing to install.
+#
+# Optional real LLM provider (used only with --provider anthropic/auto and
+# ANTHROPIC_API_KEY set). The pipeline runs fully offline without it.
+#   pip install anthropic
+#
+# Dev / tests:
+#   pip install pytest

@@ -1,0 +1,38 @@
+[
+  {
+    "service": "market-data-stream",
+    "allowed_actions": ["shift_traffic", "throttle_non_critical_consumers", "restart_consumer_group"],
+    "forbidden_actions": ["drop_live_ticks", "disable_price_validation"],
+    "notes": "Prefer regional isolation before restart. Avoid actions that can produce stale or missing tick streams globally."
+  },
+  {
+    "service": "trade-execution",
+    "allowed_actions": ["degrade_nonessential_features", "pause_low_priority_orders", "fail_over_read_path"],
+    "forbidden_actions": ["bypass_risk_checks", "force_accept_orders"],
+    "notes": "Any action affecting execution flow must preserve risk and audit controls."
+  },
+  {
+    "service": "auth-session",
+    "allowed_actions": ["roll_back_recent_deploy", "scale_out", "restart_pods"],
+    "forbidden_actions": ["disable_authentication", "extend_session_validity_globally"],
+    "notes": "If issue follows a deployment and traffic is normal, rollback is preferred over speculative tuning."
+  },
+  {
+    "service": "payments-ledger",
+    "allowed_actions": ["pause_retries", "switch_provider_route", "scale_workers"],
+    "forbidden_actions": ["mark_withdrawals_complete_without_confirmation", "skip_reconciliation"],
+    "notes": "Do not create accounting inconsistency for the sake of clearing backlog."
+  },
+  {
+    "service": "risk-engine",
+    "allowed_actions": ["roll_back_model", "route_to_previous_policy", "raise_review_threshold"],
+    "forbidden_actions": ["disable_risk_scoring", "auto_approve_all_transactions"],
+    "notes": "If rollout-correlated drift is present, rollback or controlled policy fallback is safer than threshold-only tuning."
+  },
+  {
+    "service": "internal-dev-agent",
+    "allowed_actions": ["rate_limit_jobs", "cap_token_budget", "disable_nonessential_agents"],
+    "forbidden_actions": ["grant_broader_repo_permissions", "auto_merge_changes"],
+    "notes": "Optimise spend and agent scope without expanding blast radius."
+  }
+]
